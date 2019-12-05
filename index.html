@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Rechenmeister3000&copy;</title>
+
+  <!-- Custom fonts for this theme -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+    type="text/css">
+
+  <!-- Theme CSS -->
+  <link href="css/freelancer.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Rechenmeister 3000</a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
+        type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+        aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#rechnungen">Rechnungen</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Anleitung</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Masthead -->
+  <header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+
+      <!-- Masthead Avatar Image -->
+      <img class="masthead-avatar mb-5" src="img/avataaars.svg" alt="">
+
+      <!-- Masthead Heading -->
+      <h1 class="masthead-heading text-uppercase mb-0">Rechenmeister 3000</h1>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- Masthead Subheading -->
+      <p class="masthead-subheading font-weight-light mb-0">Lama Lama Lama</p>
+
+    </div>
+  </header>
+
+
+  <!-- Rechnungen Section -->
+  <section class="page-section" id="rechnungen">
+    <div class="container">
+      <div class="alert alert-success not-shown" role="alert" id="alert-correct">
+        
+      </div>
+      <div class="alert alert-danger not-shown" role="alert" id="alert-wrong">
+        Ohje, das war leider falsch. Probiers nochmal.
+      </div>
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Rechnungen</h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- <br>
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+      </div>
+      <br> -->
+
+      <!-- Rechnungen -->
+      <div class="row text-center">
+        <div class="col-6">
+          <p class="h1 text-md-center" id="calculation" />
+        </div>
+        <div class="col-6">
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              <input class="form-control correct" id="result" type="number" placeholder="" required="required">
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row text-center not-shown">
+        <div class="col-12">
+          <button class="btn btn-primary" id="solve">Lösen</button>
+        </div>
+      </div>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+      </div>
+      <div class="divider-custom">
+        <div class="row">
+          <div class="col-12 text-center">
+            <div class="divider-custom-icon">
+              <p id="status">Richtige Rechnungen: 0</p>
+            </div>
+          </div>
+          <div class="col-12 text-center">
+            <button class="btn text-muted" id="reset">Zurücksetzen</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 text-center">
+          <button class="btn text-muted" id="toggle-settings">Einstellungen</button>
+        </div>
+      </div>
+      <div class="container not-shown" id="settings">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <div class="form-group">
+              <label>Rechenart</label>
+              <select class="form-control input-lg text-center" id="operators" label="Rechenart">
+                <option value="+">+</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="form-group">
+              <label>Kleinste Zahl</label>
+              <input class="form-control input-lg text-center" type="number" id="minnum" value="1">
+            </div>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="form-group">
+              <label>Größte Zahl</label>
+              <input class="form-control input-lg text-center" type="number" id="maxnum" value="10">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 text-center">
+            <button class="btn btn-primary" id="gen">Neue Rechnung</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="page-section bg-primary text-white mb-0" id="about">
+    <div class="container">
+
+      <!-- About Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-white">Anleitung</h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- About Section Content -->
+      <div class="row">
+        <div class="col-12 ml-auto">
+          <p class="lead">Mit dem neuen <i>Rechenmeister3000&copy;</i> können Kinder und auch Erwachsene ab sofort <b>noch schneller</b> rechnen!</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 mr-auto">
+          <p class="lead">Durch eine Vielzahl an Einstellungsmöglichkeiten kann der <i>Rechenmeister3000&copy;</i> individuell an Ihre Bedürfnisse angepasst werden. Dadurch werden sich auch bei Ihnen bereits nach kürzester Zeit merkbare Verbesserungen einstellen.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <div class="row">
+
+        <!-- Footer Location -->
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Anschrift</h4>
+          <p class="lead mb-0">42 Wallaby Way
+            <br>Sydney, NSW 0815</p>
+        </div>
+
+        <!-- Footer Social Icons -->
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4"></h4>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-facebook-f"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-twitter"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-linkedin-in"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-dribbble"></i>
+          </a>
+        </div>
+
+        <!-- Footer About Text -->
+        <div class="col-lg-4">
+          <h4 class="text-uppercase mb-4">Über Rechenmeister3000&copy;</h4>
+          <p class="lead mb-0">Rechenmeister3000&copy; ist zur freien Verwendung bestimmt.</p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Copyright Section -->
+  <section class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Copyright &copy; Moser Enterprises 2019</small>
+    </div>
+  </section>
+
+  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+  <div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <!-- <script src="js/jqBootstrapValidation.js"></script> -->
+  <!-- <script src="js/contact_me.js"></script> -->
+
+  <script src="js/calculator.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/freelancer.min.js"></script>
+
+</body>
+
+</html>
