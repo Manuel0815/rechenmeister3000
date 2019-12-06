@@ -9862,3 +9862,8 @@ form .row:first-child .floating-label-form-group {
 .not-shown {
   display: none;
 }
+
+.overlay {
+  position: absolute;
+  z-index: 1;
+}

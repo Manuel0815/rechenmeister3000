@@ -26,7 +26,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Rechenmeister 3000</a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Rechenmeister3000</a>
       <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
         type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -54,7 +54,7 @@
       <img class="masthead-avatar mb-5" src="img/avataaars.svg" alt="">
 
       <!-- Masthead Heading -->
-      <h1 class="masthead-heading text-uppercase mb-0">Rechenmeister 3000</h1>
+      <h1 class="masthead-heading text-uppercase mb-0">Rechenmeister3000</h1>
 
       <!-- Icon Divider -->
       <div class="divider-custom divider-light">
@@ -75,15 +75,14 @@
   <!-- Rechnungen Section -->
   <section class="page-section" id="rechnungen">
     <div class="container">
-      <div class="alert alert-success not-shown" role="alert" id="alert-correct">
-        
-      </div>
-      <div class="alert alert-danger not-shown" role="alert" id="alert-wrong">
-        Ohje, das war leider falsch. Probiers nochmal.
-      </div>
       <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Rechnungen</h2>
 
       <!-- Icon Divider -->
+      <div class="alert alert-success not-shown overlay" role="alert" id="alert-correct">
+      </div>
+      <div class="alert alert-danger not-shown overlay" role="alert" id="alert-wrong">
+        Ohje, das war leider falsch. Probiers nochmal.
+      </div>
       <div class="divider-custom">
         <div class="divider-custom-line"></div>
         <div class="divider-custom-icon">
@@ -91,12 +90,6 @@
         </div>
         <div class="divider-custom-line"></div>
       </div>
-
-      <!-- <br>
-      <div class="divider-custom">
-        <div class="divider-custom-line"></div>
-      </div>
-      <br> -->
 
       <!-- Rechnungen -->
       <div class="row text-center">
@@ -106,7 +99,17 @@
         <div class="col-6">
           <div class="control-group">
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <input class="form-control correct" id="result" type="number" placeholder="" required="required">
+              <div class="input-group">
+                <input class="form-control correct" id="result" type="number" placeholder="" required="required">
+                <!-- <span class="input-group-btn"><button id="refresh" class="btn btn-default btn-sm" type="button"><span
+                      class="fas fa-redo-alt"></span>
+                  </button>
+                </span> -->
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2"><button id="refresh" class="btn btn-default btn-sm"
+                      type="button"><span class="fas fa-redo-alt"></span></button></span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -129,59 +132,108 @@
               <p id="status">Richtige Rechnungen: 0</p>
             </div>
           </div>
-          <div class="col-12 text-center">
-            <button class="btn text-muted" id="reset">Zurücksetzen</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12 text-center">
-          <button class="btn text-muted" id="toggle-settings">Einstellungen</button>
-        </div>
-      </div>
-      <div class="container not-shown" id="settings">
-        <div class="alert alert-danger not-shown" role="alert" id="alert-wrong-settings">
-          Falsche Einstellungen. Die kleinste Zahl muss kleiner als die hälfte der größten Zahl sein.
-        </div>
-        <div class="row">
-          <div class="col-md-4 text-center">
-            <div class="form-group">
-              <label>Rechenart</label>
-              <select class="form-control input-lg text-center" id="operators" label="Rechenart">
-                <option value="+">+</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-4 text-center">
-            <div class="form-group">
-              <label>Kleinste Zahl</label>
-              <input class="form-control input-lg text-center" type="number" id="minnum" value="1" min="0">
-            </div>
-          </div>
-          <div class="col-md-4 text-center">
-            <div class="form-group">
-              <label>Größte Zahl</label>
-              <input class="form-control input-lg text-center" type="number" id="maxnum" value="10" min="10">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 text-center">
-            <button class="btn btn-primary" id="gen">Neue Rechnung</button>
-          </div>
         </div>
       </div>
 
       <div class="divider-custom">
         <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon">
-          <i class="fas fa-star"></i>
-        </div>
-        <div class="divider-custom-line"></div>
       </div>
 
-    </div>
+      <div class="row">
+        <div class="col-sm-6 text-center">
+          <button class="btn text-muted" id="reset">Zurücksetzen</button>
+        </div>
+        <div class="col-sm-6 text-center">
+          <button class="btn text-muted" id="toggle-settings">Einstellungen</button>
+        </div>
+      </div>
+      <div class="alert alert-danger not-shown overlay" role="alert" id="alert-wrong-settings">
+        Für diese Einstellungen können keine Rechnungen generiert werden.
+      </div>
+      <div class="container not-shown" id="settings">
+        <hr>
+        <div class="row">
+          <div class="col-5 form-group">
+            <p>Rechenart</p>
+          </div>
+          <div class="col-7">
+            <select class="form-control input-lg text-center" id="operators" label="Rechenart">
+              <option value="+">+</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4 form-group">
+            <p>Zahlenraum</p>
+          </div>
+          <div class="col-1 form-group text-right">
+            <p>von</p>
+          </div>
+          <div class="col-3 text-center">
+            <div class="form-group">
+              <input class="form-control input-lg text-center" type="number" id="minnum" value="1" min="0">
+            </div>
+          </div>
+          <div class="col-1 form-group text-center">
+            <p>bis</p>
+          </div>
+          <div class="col-3 text-center">
+            <div class="form-group">
+              <input class="form-control input-lg text-center" type="number" id="maxnum" value="10" min="10">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-7 form-group">
+            <p>Plus/Minus über Zehner?</p>
+          </div>
+          <div class="col-5 form-group">
+            <input type="checkbox" id="over-tens">
+          </div>
+        </div>
+        <div id="settings-mult">
+          <div class="row">
+            <div class="col-12">
+              <hr>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-5">
+              <p>Mult./Div.</p>
+            </div>
+            <div class="col-2 text-right">
+              <p>kl. 1x1</p>
+            </div>
+            <div class="col-1">
+              <input type="checkbox" id="small-mult-table" checked>
+            </div>
+            <div class="col-2 text-right">
+              <p>Reihe</p>
+            </div>
+            <div class="col-2">
+              <select class="form-control input-lg text-center" id="mult-series">
+                <option value="-">-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="row">
+          <div class="col-12 text-center">
+            <button class="btn btn-primary" id="gen">Neue Rechnung</button>
+          </div>
+        </div> -->
+
+      </div>
   </section>
 
   <!-- About Section -->
@@ -203,12 +255,15 @@
       <!-- About Section Content -->
       <div class="row">
         <div class="col-12 ml-auto">
-          <p class="lead">Mit dem neuen <i>Rechenmeister3000&copy;</i> können Kinder und auch Erwachsene ab sofort <b>noch schneller</b> rechnen!</p>
+          <p class="lead">Mit dem neuen <i>Rechenmeister3000&copy;</i> können Kinder und auch Erwachsene ab sofort
+            <b>noch schneller</b> rechnen!</p>
         </div>
       </div>
       <div class="row">
         <div class="col-12 mr-auto">
-          <p class="lead">Durch eine Vielzahl an Einstellungsmöglichkeiten kann der <i>Rechenmeister3000&copy;</i> individuell an Ihre Bedürfnisse angepasst werden. Dadurch werden sich auch bei Ihnen bereits nach kürzester Zeit merkbare Verbesserungen einstellen.</p>
+          <p class="lead">Durch eine Vielzahl an Einstellungsmöglichkeiten kann der <i>Rechenmeister3000&copy;</i>
+            individuell an Ihre Bedürfnisse angepasst werden. Dadurch werden sich auch bei Ihnen bereits nach kürzester
+            Zeit merkbare Verbesserungen einstellen.</p>
         </div>
       </div>
 
