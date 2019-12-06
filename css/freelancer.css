@@ -9867,3 +9867,9 @@ form .row:first-child .floating-label-form-group {
   position: absolute;
   z-index: 1;
 }
+
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev{
+    display:block;
+}
