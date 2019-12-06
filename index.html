@@ -141,6 +141,9 @@
         </div>
       </div>
       <div class="container not-shown" id="settings">
+        <div class="alert alert-danger not-shown" role="alert" id="alert-wrong-settings">
+          Falsche Einstellungen. Die kleinste Zahl muss kleiner als die hälfte der größten Zahl sein.
+        </div>
         <div class="row">
           <div class="col-md-4 text-center">
             <div class="form-group">
@@ -153,13 +156,13 @@
           <div class="col-md-4 text-center">
             <div class="form-group">
               <label>Kleinste Zahl</label>
-              <input class="form-control input-lg text-center" type="number" id="minnum" value="1">
+              <input class="form-control input-lg text-center" type="number" id="minnum" value="1" min="0">
             </div>
           </div>
           <div class="col-md-4 text-center">
             <div class="form-group">
               <label>Größte Zahl</label>
-              <input class="form-control input-lg text-center" type="number" id="maxnum" value="10">
+              <input class="form-control input-lg text-center" type="number" id="maxnum" value="10" min="10">
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 var min_num, max_num;
 var operator_list = {
     "+": "+"
-    ,"-": "-"
+    , "-": "-"
     , "*": "*"
     , "/": "/"
     , "+ -": "+-"
@@ -32,8 +32,13 @@ $(document).ready(function () {
 
     generate_calculation();
 
-    function generate_random_number(min, max) {
-        return Math.floor(Math.random() * max) + min;
+    function generate_random_number(min, max, operator, n) {
+        if ((operator == '*') || (operator == '/' && n == 2)){
+            min = 1;
+            max = 10;
+        }
+
+        return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
     function get_random_operator(operators) {
@@ -43,22 +48,35 @@ $(document).ready(function () {
     function generate_calculation() {
         min_num = parseInt($('#minnum').val(), 10);
         max_num = parseInt($('#maxnum').val(), 10);
-        operators = $('#operators option:selected').text().replace(/\s/g,'');;
-        if(operators.length > 1){
-            operator = get_random_operator(operators);
+
+        if (min_num >= max_num || min_num * 2 > max_num) {
+            $("#minnum").addClass("wrong");
+            $("#maxnum").addClass("wrong");
+            $("#alert-wrong-settings").removeClass("not-shown");
         } else {
-            operator = operators;
+            $("#minnum").removeClass("wrong");
+            $("#maxnum").removeClass("wrong");
+            $("#alert-wrong-settings").addClass("not-shown");
+            operators = $('#operators option:selected').text().replace(/\s/g, '');;
+            if (operators.length > 1) {
+                operator = get_random_operator(operators);
+            } else {
+                operator = operators;
+            }
+            old_num1 = num1;
+            old_num2 = num2;
+            do {
+                num1 = generate_random_number(min_num, max_num, operator, 1);
+                num2 = generate_random_number(min_num, max_num, operator, 2);
+            } while (
+                (operator == "+" && num1 + num2 > max_num)
+                || (operator == "-" && num1 - num2 < min_num)
+                || (operator == "*" && (num1 * num2 > max_num * max_num))
+                || (operator == "/" && (num1 / num2 < min_num || num1 % num2 != 0 || num1 / num2 > 10))
+                || (old_num1 == num1) || (old_num2 == num2)
+            )
+            set_values();
         }
-        do {
-            num1 = generate_random_number(min_num, max_num);
-            num2 = generate_random_number(min_num, max_num);
-        } while (
-            (operator == "+" && num1 + num2 > max_num)
-            || (operator == "-" && num1 - num2 < min_num)
-            || (operator == "*" && (num1 * num2 > max_num*max_num || num1 > 10 || num2 > 10))
-            || (operator == "/" && (num2 == 0 || num1 / num2 < min_num || num1 % num2 != 0 || num2 > 10 || num1 / num2 > 10))
-        )
-        set_values();
     }
 
     function set_values() {
