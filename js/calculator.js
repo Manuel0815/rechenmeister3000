@@ -137,6 +137,7 @@ $(document).ready(function () {
             $("#alert-wrong").removeClass("not-shown");
             $("#result").removeClass("correct");
         }
+        $("#result").val('');
         $("#result").select();
     });
 });
