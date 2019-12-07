@@ -333,6 +333,6 @@ $(document).ready(function () {
         $("#alpaca-fact").text(alpaca_facts[[Math.floor(Math.random() * alpaca_facts.length)]]);
     }
 
-    update_alpaca_fact();
     generate_calculation();
+    update_alpaca_fact();
 });
