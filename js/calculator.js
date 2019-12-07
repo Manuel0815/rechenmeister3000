@@ -34,8 +34,8 @@ $(document).ready(function () {
             .attr("value", value).text(key));
     });
 
-    function generate_random_number(min, max, n) {
-        if (n == 2 && !over_tens)
+    function generate_random_number(min, max, cur_op, n) {
+        if ((n == 2 && !over_tens && '+-'.includes(cur_op)) || ('*/'.includes(cur_op) && small_mult_table))
             return Math.floor(Math.random() * (10 - 0 + 1) + 0); // between 0 and 10
         else
             return Math.floor(Math.random() * (max - min + 1) + min);
@@ -110,7 +110,7 @@ $(document).ready(function () {
             old_num2 = num2;
             c = 0;
             do {
-                if (c >= 1000) {
+                if (c >= 5000000) {
                     valid_settings = false;
                     mark_settings();
                     break;
