@@ -13,6 +13,9 @@ var static_n2 = '-';
 var num1, num2;
 var operator = "+";
 
+// stopwatch
+var seconds = 0; var minutes = 0; var hours = 0; var t;
+
 var n_right = 0;
 
 var valid_settings = true;
@@ -62,7 +65,7 @@ $(document).ready(function () {
     function validate_settings() {
         valid_settings = false;
         msg = "";
-        if (min_num < -10000 || max_num > 10000) {
+        if (min_num < -10000 || max_num > 10000) {
             msg = "Bitte einen Zahlenraum von -10.000 bis + 10.000 eingeben.";
         }
         else if (min_num >= max_num) {
@@ -142,6 +145,37 @@ $(document).ready(function () {
         $('#status').text("Richtige Rechnungen: " + n_right);
     }
 
+    function reset_clock() {
+        seconds = 0; minutes = 0; hours = 0;
+        $('#clock').text("00:00:00");
+    }
+
+    function timer() {
+        t = setTimeout(add, 1000);
+    }
+
+    function stop_clock() {
+        clearTimeout(t);
+    }
+
+    function start_clock() {
+        timer();
+    }
+
+    function add() {
+        seconds++;
+        if (seconds >= 60) {
+            seconds = 0;
+            minutes++;
+            if (minutes >= 60) {
+                minutes = 0;
+                hours++;
+            }
+        }
+        $('#clock').text((hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds));
+        timer();
+    }
+
     function wrong_result() {
         $("#result").addClass("wrong");
         $("#result").removeClass("correct");
@@ -165,11 +199,6 @@ $(document).ready(function () {
 
     $("#gen").click(function () {
         generate_calculation();
-    });
-
-    $("#reset").click(function () {
-        n_right = 0;
-        update_n_right();
     });
 
     $("#toggle-settings").click(function () {
@@ -247,6 +276,32 @@ $(document).ready(function () {
     $('#mult-series').change(function () {
         static_n2 = $(this).val();
         validate_settings();
+    });
+
+    $('#start').click(function (e) {
+        start_clock();
+    });
+
+    $('#stop').click(function (e) {
+        stop_clock();
+    });
+
+    $("#reset").click(function () {
+        n_right = 0;
+        update_n_right();
+        stop_clock();
+        reset_clock();
+    });
+
+    $('#use-clock').change(function () {
+        if ($('#use-clock').is(':checked')){
+            $("#stop-watch").fadeIn();
+            $("#stop-watch-btn").fadeIn();
+        } else {
+            stop_clock();
+            $("#stop-watch").fadeOut();
+            $("#stop-watch-btn").fadeOut();
+        }
     });
 
     $('#refresh').click(function (e) {

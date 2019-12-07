@@ -101,13 +101,9 @@
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
               <div class="input-group">
                 <input class="form-control correct" id="result" type="number" placeholder="" required="required">
-                <!-- <span class="input-group-btn"><button id="refresh" class="btn btn-default btn-sm" type="button"><span
-                      class="fas fa-redo-alt"></span>
-                  </button>
-                </span> -->
                 <div class="input-group-append">
-                  <span class="input-group-text" id="basic-addon2"><button id="refresh" class="btn btn-default btn-sm"
-                      type="button"><span class="fas fa-redo-alt"></span></button></span>
+                  <span class="input-group-text" id="input-solve"><button id="solve" class="btn btn-default btn-sm"
+                      type="button"><span class="fas fa-check"></span></button></span>
                 </div>
               </div>
             </div>
@@ -115,21 +111,35 @@
         </div>
       </div>
       <br>
-      <div class="row text-center not-shown">
-        <div class="col-12">
-          <button class="btn btn-primary" id="solve">Lösen</button>
-        </div>
-      </div>
 
       <!-- Icon Divider -->
       <div class="divider-custom">
         <div class="divider-custom-line"></div>
       </div>
       <div class="divider-custom">
-        <div class="row">
-          <div class="col-12 text-center">
-            <div class="divider-custom-icon">
-              <p id="status">Richtige Rechnungen: 0</p>
+        <div class="divider-custom-icon">
+          <div class="container">
+            <div class="row text-center">
+              <div class="col-12">
+                <p id="status">Richtige Rechnungen: 0</p>
+              </div>
+            </div>
+            <div class="row text-center" id="stop-watch">
+              <div class="col-12">
+                <p id="clock">00:00:00</p>
+              </div>
+            </div>
+            <div class="row text-center">
+              <div class="col-12 text-center">
+                <span id="stop-watch-btn">
+                  <button id="start" class="btn btn-secondary btn-lg" type="button"><span
+                      class="fas fa-play"></span></button>
+                  <button id="stop" class="btn btn-secondary btn-lg" type="button"><span
+                      class="fas fa-pause"></span></button>
+                </span>
+                <button id="reset" class="btn btn-secondary btn-lg" type="button"><span
+                    class="fas fa-redo"></span></button>
+              </div>
             </div>
           </div>
         </div>
@@ -191,6 +201,14 @@
           </div>
           <div class="col-5 form-group">
             <input type="checkbox" id="over-tens">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-7 form-group">
+            <p>Stoppuhr?</p>
+          </div>
+          <div class="col-5 form-group">
+            <input type="checkbox" id="use-clock" checked>
           </div>
         </div>
         <div id="settings-mult">
