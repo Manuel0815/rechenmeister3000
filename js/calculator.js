@@ -39,8 +39,7 @@ var alpaca_facts = [
     'Alpakas sind Vegetarier.',
     'Alpakas werden bis zu 25 Jahre alt.',
     'Alpakas werden nicht gerne gestreichelt.',
-    'Alpakas sind keine Lasttiere.',
-
+    'Alpakas sind keine Lasttiere.'
 ]
 
 $(document).ready(function () {
