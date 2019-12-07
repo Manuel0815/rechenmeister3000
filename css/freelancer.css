@@ -9873,3 +9873,8 @@ form .row:first-child .floating-label-form-group {
 .carousel-item-prev{
     display:block;
 }
+
+.avatar {
+  width: 100px;
+  height: 100px;
+}
