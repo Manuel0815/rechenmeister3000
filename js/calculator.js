@@ -60,16 +60,21 @@ $(document).ready(function () {
     }
 
     function validate_settings() {
-        if (min_num >= max_num) {
-            valid_settings = false;
+        valid_settings = false;
+        msg = "";
+        if (min_num < -10000 || max_num > 10000) {
+            msg = "Bitte einen Zahlenraum von -10.000 bis + 10.000 eingeben.";
+        }
+        else if (min_num >= max_num) {
+            msg = "Die kleinste Zahl muss kleiner als die größere Zahl sein.";
         } else {
             valid_settings = true;
         }
-        mark_settings(valid_settings);
+        mark_settings(valid_settings, msg);
         generate_calculation();
     }
 
-    function mark_settings(valid) {
+    function mark_settings(valid, msg) {
         if (valid) {
             $("#minnum").removeClass("wrong");
             $("#maxnum").removeClass("wrong");
@@ -77,21 +82,20 @@ $(document).ready(function () {
         } else {
             $("#minnum").addClass("wrong");
             $("#maxnum").addClass("wrong");
+            $("#alert-wrong-settings").text(msg);
             $("#alert-wrong-settings").fadeIn();
         }
     }
 
     function invalid_calculation(num1, num2, cur_op, old_num1, old_num2) {
         var invalid = false;
-        // alert("n1:" + num1 + "; n2:" + num2);
-        // alert(Math.floor((num1 + num2)/10));
         if (cur_op == '+' && (num1 + num2 > max_num || num1 + num2 < min_num || (!over_tens && Math.floor((num1 + num2) / 10) != Math.floor(num1 / 10)))) // addition
             invalid = true;
         else if (cur_op == "-" && (num1 - num2 < min_num || num1 - num2 > max_num || (!over_tens && Math.floor((num1 - num2) / 10) != Math.floor(num1 / 10)))) // subtraction
             invalid = true;
-        else if (cur_op == "*" && (num1 * num2 > max_num || (small_mult_table && (num1 > 10 || num2 > 10)))) // multiplication
+        else if (cur_op == "*" && (num1 * num2 > max_num || num1 * num2 < min_num || (small_mult_table && (num1 > 10 || num2 > 10)))) // multiplication
             invalid = true;
-        else if (cur_op == "/" && (num1 / num2 < min_num || num1 < num2 || num1 % num2 != 0 || (small_mult_table && (num1 / num2 > 10 || num2 > 10)))) // division
+        else if (cur_op == "/" && (num1 / num2 < min_num || num1 / num2 > max_num || num1 < num2 || num1 % num2 != 0 || (small_mult_table && (num1 / num2 > 10 || num2 > 10)))) // division
             invalid = true;
         else if (old_num1 == num1 && old_num2 == num2 && static_n2 == '-')
             invalid = true;
@@ -112,7 +116,7 @@ $(document).ready(function () {
             do {
                 if (c >= 5000000) {
                     valid_settings = false;
-                    mark_settings();
+                    mark_settings(valid_settings, "Für diese Einstellungen können keine Rechnungen generiert werden.");
                     break;
                 }
                 num1 = generate_random_number(min_num, max_num, cur_op, 1);
