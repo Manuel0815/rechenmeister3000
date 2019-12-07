@@ -16,7 +16,7 @@ var operator = "+";
 // stopwatch
 var seconds = 0; var minutes = 0; var hours = 0; var t;
 
-var n_right = 0;
+var n_right = 0, n_wrong = 0;
 
 var valid_settings = true;
 
@@ -27,6 +27,20 @@ var motivational_quotes = [
     'Super!',
     'Sehr gut!',
     'Weiter so!'
+]
+
+var alpaca_facts = [
+    'Alpakas können summen.',
+    '80% aller Alpakas leben in Peru.',
+    'Alpakas sind Herdentiere.',
+    'Es gibt Alpakas in mehr als 20 verschiedenen Farben.',
+    'Weibliche Alpakas spucken Männchen an, wenn sie nicht an ihnen interessiert sind.',
+    'Alpakas werden vor allem wegen ihrem Fell und ihrer Wolle gezüchtet.',
+    'Alpakas sind Vegetarier.',
+    'Alpakas werden bis zu 25 Jahre alt.',
+    'Alpakas werden nicht gerne gestreichelt.',
+    'Alpakas sind keine Lasttiere.',
+
 ]
 
 $(document).ready(function () {
@@ -142,7 +156,11 @@ $(document).ready(function () {
     }
 
     function update_n_right() {
-        $('#status').text("Richtige Rechnungen: " + n_right);
+        $('#status_right').text("Richtig: " + n_right);
+    }
+
+    function update_n_wrong() {
+        $('#status_wrong').text("Falsch: " + n_wrong);
     }
 
     function reset_clock() {
@@ -181,6 +199,8 @@ $(document).ready(function () {
         $("#result").removeClass("correct");
         $("#alert-correct").fadeOut();
         $("#alert-wrong").fadeIn();
+        n_wrong++;
+        update_n_wrong();
     }
 
     function correct_result() {
@@ -288,13 +308,15 @@ $(document).ready(function () {
 
     $("#reset").click(function () {
         n_right = 0;
+        n_wrong = 0;
+        update_n_wrong();
         update_n_right();
         stop_clock();
         reset_clock();
     });
 
     $('#use-clock').change(function () {
-        if ($('#use-clock').is(':checked')){
+        if ($('#use-clock').is(':checked')) {
             $("#stop-watch").fadeIn();
             $("#stop-watch-btn").fadeIn();
         } else {
@@ -308,5 +330,10 @@ $(document).ready(function () {
         generate_calculation();
     });
 
+    function update_alpaca_fact() {
+        $("#alpaca-fact").text(alpaca_facts[[Math.floor(Math.random() * alpaca_facts.length)]]);
+    }
+
+    update_alpaca_fact();
     generate_calculation();
 });
