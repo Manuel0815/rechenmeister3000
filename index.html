@@ -3,21 +3,21 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
 
   <title>Alpakulator</title>
 
   <!-- Custom fonts for this theme -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
-    type="text/css">
+    type="text/css"/>
 
   <!-- Theme CSS -->
-  <link href="css/freelancer.css" rel="stylesheet">
+  <link href="css/freelancer.css" rel="stylesheet"/>
 
 </head>
 
@@ -38,6 +38,9 @@
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#rechnungen">Rechnungen</a>
           </li>
+		  <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#umrechnungen">Umrechnungen</a>
+          </li>
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Über</a>
           </li>
@@ -53,7 +56,7 @@
       <!-- Masthead Avatar Image -->
       <!-- <img class="masthead-avatar mb-5" src="img/avataaars.svg" alt=""> -->
 
-      <img class="masthead-avatar mb-5 text-center" src="img/alpaca.svg" alt="">
+      <img class="masthead-avatar mb-5 text-center" src="img/alpaca.svg" alt=""/>
 
       <!-- Masthead Heading -->
       <h1 class="masthead-heading text-uppercase mb-0">Alpakulator</h1>
@@ -102,7 +105,7 @@
           <div class="control-group">
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
               <div class="input-group">
-                <input class="form-control correct" id="result" type="number" placeholder="" required="required">
+                <input class="form-control correct" id="result" type="number" placeholder="" required="required"/>
                 <div class="input-group-append">
                   <span class="input-group-text" id="input-solve"><button id="solve" class="btn btn-default btn-sm"
                       type="button"><span class="fas fa-check"></span></button></span>
@@ -112,7 +115,7 @@
           </div>
         </div>
       </div>
-      <br>
+      <br/>
 
       <!-- Icon Divider -->
       <div class="divider-custom">
@@ -161,7 +164,7 @@
         Für diese Einstellungen können keine Rechnungen generiert werden.
       </div>
       <div class="container not-shown" id="settings">
-        <hr>
+        <hr/>
         <div class="row">
           <div class="col-5 form-group">
             <p>Rechenart</p>
@@ -172,7 +175,7 @@
             </select>
           </div>
         </div>
-        <hr class="d-block d-md-none d-lg-none d-xl-none">
+        <hr class="d-block d-md-none d-lg-none d-xl-none"/>
         <div class="row">
           <div class="col-md-4 form-group d-none d-md-block">
             <p>Zahlenraum</p>
@@ -182,7 +185,7 @@
           </div>
           <div class="col-md-3 text-center">
             <div class="form-group">
-              <input class="form-control input-lg text-center" type="number" id="minnum" value="1" min="0">
+              <input class="form-control input-lg text-center" type="number" id="minnum" value="1" min="0"/>
             </div>
           </div>
           <div class="col-md-1 form-group text-center">
@@ -190,17 +193,17 @@
           </div>
           <div class="col-md-3 text-center">
             <div class="form-group">
-              <input class="form-control input-lg text-center" type="number" id="maxnum" value="10" min="10">
+              <input class="form-control input-lg text-center" type="number" id="maxnum" value="10" min="10"/>
             </div>
           </div>
         </div>
-        <hr class="d-block d-md-none d-lg-none d-xl-none">
+        <hr class="d-block d-md-none d-lg-none d-xl-none"/>
         <div class="row">
           <div class="col-7 form-group">
             <p>Plus/Minus über Zehner?</p>
           </div>
           <div class="col-5 form-group">
-            <input type="checkbox" id="over-tens">
+            <input type="checkbox" id="over-tens"/>
           </div>
         </div>
         <div class="row">
@@ -208,13 +211,13 @@
             <p>Stoppuhr?</p>
           </div>
           <div class="col-5 form-group">
-            <input type="checkbox" id="use-clock" checked>
+            <input type="checkbox" id="use_clock"  checked="checked"/>
           </div>
         </div>
         <div id="settings-mult">
           <div class="row">
             <div class="col-12">
-              <hr>
+              <hr/>
             </div>
           </div>
           <div class="row">
@@ -222,10 +225,10 @@
               <p>Kleines 1x1?</p>
             </div>
             <div class="col-5 form-group">
-              <input type="checkbox" id="small-mult-table" checked>
+              <input type="checkbox" id="small-mult-table" checked="checked"/>
             </div>
           </div>
-          <hr class="d-block d-md-none d-lg-none d-xl-none">
+          <hr class="d-block d-md-none d-lg-none d-xl-none"/>
           <div class="row">
             <div class="col-5 form-group">
               <p>Reihe</p>
@@ -251,6 +254,79 @@
 
     </div>
   </section>
+
+
+
+  <!-- umrechnen Section -->
+  <section class="page-section" id="umrechnungen">
+    <div class="container">
+
+      <!-- umrechnen Section Heading -->
+	  
+	  <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Umrechnungen</h2>
+
+
+ <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+	  
+
+
+      <!-- Umrechnungen -->
+     
+	   <p class="Aufgabe"><span class="AufgabeAufgabe">Aufgabe:</span> Trage bei den zu berechnenden Größen die richtigen Werte ein.</p>
+
+	  
+		<div class="Aufgabenrahmen"><br />
+
+	<table border="1" cellpadding="10" align="center" cellspacing="0" rules="cols" width="100%">
+		<tbody>
+			<tr>
+				<td colspan="2" align="center" valign="top" style="height:5.3em">
+					<strong>1) Länge</strong><br />
+					<span id="EinhLaenge">
+					mm<input type="checkbox" onclick="Einheiten.inpKlick(this.parentNode.id,0)"/>,
+					cm<input type="checkbox" onclick="Einheiten.inpKlick(this.parentNode.id,1)" checked="checked"/>,
+					dm<input type="checkbox" onclick="Einheiten.inpKlick(this.parentNode.id,2)" checked="checked"/>,
+					m<input type="checkbox" onclick="Einheiten.inpKlick(this.parentNode.id,3)" checked="checked"/>,
+					km<input type="checkbox" onclick="Einheiten.inpKlick(this.parentNode.id,4)"/>
+					</span><br />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><button onclick="Einheiten.Ausgabe(0,0)">Neu</button></td>
+			</tr>
+			<tr>
+				<td  id="EinhLaengeG" align="right"></td>
+				<td id="EinhLaengeK"  align="right"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<button onclick="Einheiten.Auswertung(0,'EinhLaengeG','EinhLaengeK');T_Resultat('EinhLaengeGKRes',' 1','EinhLaengeGKrichtig','EinhLaengeGKfalsch')" >Auswertung</button>
+					<p style="font-size:small">richtig: <span id="EinhLaengeGKrichtig">0</span><span></span>falsch: <span id="EinhLaengeGKfalsch">0</span></p></td>
+			</tr>
+		</tbody>
+	</table>	
+	</div>
+	
+	  
+	  
+	  
+	  
+  
+</div>
+
+
+
+  </section>
+  
+  
+  
+  
 
   <!-- About Section -->
   <section class="page-section bg-primary text-white mb-0" id="about">
@@ -287,28 +363,28 @@
           <p><b>Überzeugen Sie sich selbst:</b></p>
         </div>
       </div>
-      <hr>
+      <hr/>
       <div id="carouselContent" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner" role="listbox">
           <div class="carousel-item active text-center p-4">
             <p><img src="img/2.svg" class="avatar" /></p>
             <p><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i></p>
-            <p><i>"Seit ich den Alpakulator kenne, kann ich schon fast <br>fehlerfrei dividieren!"</i></p>
+            <p><i>"Seit ich den Alpakulator kenne, kann ich schon fast <br/>fehlerfrei dividieren!"</i></p>
             <p>
               <font
                 style="color:#fcd000; font-size:14px; text-transform: uppercase; font-weight: bold; font-style:italic">
-                Herbert, 54<br>Bankangestellter</font>
+                Herbert, 54<br/>Bankangestellter</font>
             </p>
           </div>
           <div class="carousel-item text-center p-4">
               <p><img src="img/4.svg" class="avatar" /></p>
               <p><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
-            <p><i>"Durch die tollen Beispiele im Alpakulator bereitet mir<br>die Addition bis 100 keine Probleme
-                mehr.<br>Sogar, wenn es über den Zehner geht."</i></p>
+            <p><i>"Durch die tollen Beispiele im Alpakulator bereitet mir<br/>die Addition bis 100 keine Probleme
+                mehr.<br/>Sogar, wenn es über den Zehner geht."</i></p>
             <p>
               <font
                 style="color:#fcd000; font-size:14px; text-transform: uppercase; font-weight: bold; font-style:italic">
-                Susanne, 39<br>Steuerberaterin</font>
+                Susanne, 39<br/>Steuerberaterin</font>
             </p>
           </div>
           <div class="carousel-item text-center p-4">
@@ -318,7 +394,7 @@
             <p>
               <font
                 style="color:#fcd000; font-size:14px; text-transform: uppercase; font-weight: bold; font-style:italic">
-                Johannes, 7<br>Schüler</font>
+                Johannes, 7<br/>Schüler</font>
             </p>
           </div>
           <div class="carousel-item text-center p-4">
@@ -328,7 +404,7 @@
             <p>
               <font
               style="color:#fcd000; font-size:14px; text-transform: uppercase; font-weight: bold; font-style:italic">
-              Pippi, 9<br>Schülerin</font>
+              Pippi, 9<br/>Schülerin</font>
             </p>
           </div>
         </div>
@@ -341,7 +417,7 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-      <hr>
+      <hr/>
     </div>
   </section>
 
@@ -354,7 +430,7 @@
         <!-- Footer Location -->
         <div class="col-lg-4 mb-5 mb-lg-0">
           <h4 class="text-uppercase mb-4">Kontakt</h4>
-          <p class="lead mb-0">P. Sherman<br>
+          <p class="lead mb-0">P. Sherman<br/>
             42 Wallaby Way Sydney</p>
         </div>
 
@@ -388,7 +464,7 @@
   <!-- Copyright Section -->
   <section class="copyright py-4 text-center text-white">
     <div class="container">
-      <small>Copyright &copy; Moser Enterprises 2019</small>
+      <small>Copyright  Moser Enterprises 2019</small>
     </div>
   </section>
 
@@ -398,7 +474,7 @@
       <i class="fa fa-chevron-up"></i>
     </a>
   </div>
-  </div>
+  
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
